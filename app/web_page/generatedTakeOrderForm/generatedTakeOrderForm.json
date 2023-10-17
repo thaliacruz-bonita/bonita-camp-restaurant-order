@@ -1,10 +1,10 @@
 {
-  "id" : "newForm",
-  "name" : "newForm",
+  "id" : "generatedTakeOrderForm",
+  "name" : "generatedTakeOrderForm",
   "type" : "form",
   "uuid" : "a5a1b834-141c-4467-8292-270e5cd3873c",
   "modelVersion" : "2.4",
-  "lastUpdate" : 1697554959083,
+  "lastUpdate" : 1697555413285,
   "description" : "Page generated with Bonita UI designer",
   "rows" : [
     [

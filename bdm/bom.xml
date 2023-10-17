@@ -42,7 +42,14 @@
                 <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
             </fields>
             <uniqueConstraints/>
-            <queries/>
+            <queries>
+                <query name="findByTableIdAndStatus" content="SELECT t &#13;&#10;FROM TableOrderCheck t &#13;&#10;WHERE t.tableId = :tableId&#13;&#10;AND t.status = :status&#13;&#10;ORDER BY t.persistenceId ASC" returnType="com.myacme.sample.model.TableOrderCheck">
+                    <queryParameters>
+                        <queryParameter name="tableId" className="java.lang.Long"/>
+                        <queryParameter name="status" className="java.lang.String"/>
+                    </queryParameters>
+                </query>
+            </queries>
             <indexes/>
         </businessObject>
     </businessObjects>
