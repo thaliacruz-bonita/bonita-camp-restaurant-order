@@ -12,6 +12,30 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_GDsW2Gz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_GDsW2Wz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_GDsW2mz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_m1QS8G0AEe6OFP_lORmyYg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_m1QS8W0AEe6OFP_lORmyYg" name="tableCheck" content="tableCheck" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.TableOrderCheck">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_nhFeMG0AEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_m1QS8m0AEe6OFP_lORmyYg" name="restaurantOrder" content="restaurantOrder" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.RestaurantOrder">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rPtsEG0AEe6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_m1QS820AEe6OFP_lORmyYg" type="JAVA_METHOD" expression="addToOrders">
+              <inputTypes>com.myacme.sample.model.RestaurantOrder</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_tSrpYG0AEe6OFP_lORmyYg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_tSrpYW0AEe6OFP_lORmyYg" name="tableCheck" content="tableCheck" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.TableOrderCheck">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_t7IwgG0AEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_tSrpYm0AEe6OFP_lORmyYg" name="calculateTotalInOrder" content="subTotal = tableCheck.total&#xD;&#xA;&#xD;&#xA;itemsInOrder.each { subTotal += it }&#xD;&#xA;&#xD;&#xA;return subTotal" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Float">
+              <referencedElements xmi:type="process:Data" xmi:id="_BKceAG0BEe6OFP_lORmyYg" name="subTotal" dataType="_GDsXvmz_Ee6OFP_lORmyYg"/>
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_BKceAW0BEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
+              <referencedElements xmi:type="process:JavaObjectData" xmi:id="_BKceAm0BEe6OFP_lORmyYg" name="itemsInOrder" dataType="_GDsXwGz_Ee6OFP_lORmyYg" className="java.util.List"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_tSrpY20AEe6OFP_lORmyYg" type="JAVA_METHOD" expression="setTotal">
+              <inputTypes>java.lang.Float</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_GDsW22z_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_GDsW3Gz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_GDsW3Wz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -96,6 +120,15 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_GDsXH2z_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_GDsXIGz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_GDsXIWz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_Vgl3wG0BEe6OFP_lORmyYg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_Vgl3wW0BEe6OFP_lORmyYg" name="restaurantOrder" content="restaurantOrder" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.RestaurantOrder">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_WXoNcG0BEe6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_Vgl3wm0BEe6OFP_lORmyYg" name="SERVED" content="SERVED"/>
+            <operator xmi:type="expression:Operator" xmi:id="_Vgl3w20BEe6OFP_lORmyYg" type="JAVA_METHOD" expression="setStatus">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_GDsXImz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_GDsXI2z_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_GDsXJGz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
@@ -113,6 +146,15 @@
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_GDsXLWz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_GDsXLmz_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_GDsXL2z_Ee6OFP_lORmyYg" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_P2SAUG0BEe6OFP_lORmyYg">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_P2SAUW0BEe6OFP_lORmyYg" name="restaurantOrder" content="restaurantOrder" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.RestaurantOrder">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Qz6tQG0BEe6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_P2SAUm0BEe6OFP_lORmyYg" name="READY" content="READY"/>
+            <operator xmi:type="expression:Operator" xmi:id="_P2SAU20BEe6OFP_lORmyYg" type="JAVA_METHOD" expression="setStatus">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_GDsXMGz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_GDsXMWz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_GDsXMmz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
