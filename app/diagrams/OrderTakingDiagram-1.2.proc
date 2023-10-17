@@ -16,8 +16,8 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_m1QS8W0AEe6OFP_lORmyYg" name="tableCheck" content="tableCheck" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.TableOrderCheck">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_nhFeMG0AEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_m1QS8m0AEe6OFP_lORmyYg" name="restaurantOrder" content="restaurantOrder" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.RestaurantOrder">
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_rPtsEG0AEe6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_m1QS8m0AEe6OFP_lORmyYg" name="newScript()" content="restaurantOrder" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.myacme.sample.model.RestaurantOrder">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_GCwT8G0FEe6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_m1QS820AEe6OFP_lORmyYg" type="JAVA_METHOD" expression="addToOrders">
               <inputTypes>com.myacme.sample.model.RestaurantOrder</inputTypes>
@@ -27,10 +27,10 @@
             <leftOperand xmi:type="expression:Expression" xmi:id="_tSrpYW0AEe6OFP_lORmyYg" name="tableCheck" content="tableCheck" type="TYPE_VARIABLE" returnType="com.myacme.sample.model.TableOrderCheck">
               <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_t7IwgG0AEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
             </leftOperand>
-            <rightOperand xmi:type="expression:Expression" xmi:id="_tSrpYm0AEe6OFP_lORmyYg" name="calculateTotalInOrder" content="subTotal = tableCheck.total&#xD;&#xA;&#xD;&#xA;itemsInOrder.each { subTotal += it }&#xD;&#xA;&#xD;&#xA;return subTotal" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Float">
-              <referencedElements xmi:type="process:Data" xmi:id="_BKceAG0BEe6OFP_lORmyYg" name="subTotal" dataType="_GDsXvmz_Ee6OFP_lORmyYg"/>
-              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_BKceAW0BEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
-              <referencedElements xmi:type="process:JavaObjectData" xmi:id="_BKceAm0BEe6OFP_lORmyYg" name="itemsInOrder" dataType="_GDsXwGz_Ee6OFP_lORmyYg" className="java.util.List"/>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_tSrpYm0AEe6OFP_lORmyYg" name="calculateTotalInOrder" content="subTotal = tableCheck.total&#xD;&#xA;&#xD;&#xA;itemsInOrder.each { subTotal += it.price*it.quantity}&#xD;&#xA;&#xD;&#xA;return subTotal" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Float">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_KMfCEG0IEe6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck"/>
+              <referencedElements xmi:type="process:Data" xmi:id="_KMfCEW0IEe6OFP_lORmyYg" name="subTotal" dataType="_GDsXvmz_Ee6OFP_lORmyYg"/>
+              <referencedElements xmi:type="process:JavaObjectData" xmi:id="_KMfCEm0IEe6OFP_lORmyYg" name="itemsInOrder" dataType="_GDsXwGz_Ee6OFP_lORmyYg" className="java.util.List"/>
             </rightOperand>
             <operator xmi:type="expression:Operator" xmi:id="_tSrpY20AEe6OFP_lORmyYg" type="JAVA_METHOD" expression="setTotal">
               <inputTypes>java.lang.Float</inputTypes>
@@ -84,7 +84,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_GDsXAWz_Ee6OFP_lORmyYg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_GDsXAmz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_GDsXA2z_Ee6OFP_lORmyYg">
-            <targetForm xmi:type="expression:Expression" xmi:id="_GDsXBGz_Ee6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_vTK2QG0HEe6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_GDsXBWz_Ee6OFP_lORmyYg"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_GDsXBmz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -111,7 +111,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_GDsXGGz_Ee6OFP_lORmyYg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_GDsXGWz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_GDsXGmz_Ee6OFP_lORmyYg">
-            <targetForm xmi:type="expression:Expression" xmi:id="_GDsXG2z_Ee6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_vTK2QW0HEe6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_GDsXHGz_Ee6OFP_lORmyYg"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_GDsXHWz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -135,7 +135,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_GDsXJWz_Ee6OFP_lORmyYg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_GDsXJmz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_GDsXJ2z_Ee6OFP_lORmyYg">
-            <targetForm xmi:type="expression:Expression" xmi:id="_GDsXKGz_Ee6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_vTK2Qm0HEe6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_GDsXKWz_Ee6OFP_lORmyYg"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_GDsXKmz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -161,7 +161,7 @@
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_GDsXM2z_Ee6OFP_lORmyYg" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_GDsXNGz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_GDsXNWz_Ee6OFP_lORmyYg">
-            <targetForm xmi:type="expression:Expression" xmi:id="_GDsXNmz_Ee6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_vTK2Q20HEe6OFP_lORmyYg" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
           <contract xmi:type="process:Contract" xmi:id="_GDsXN2z_Ee6OFP_lORmyYg"/>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_GDsXOGz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
@@ -177,17 +177,16 @@
           <completionCondition xmi:type="expression:Expression" xmi:id="_GDsXQWz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
         </elements>
       </elements>
-      <data xmi:type="process:Data" xmi:id="_GDsXQmz_Ee6OFP_lORmyYg" name="table" dataType="_GDsXvGz_Ee6OFP_lORmyYg">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXQ2z_Ee6OFP_lORmyYg" name="" content="" returnType=""/>
-      </data>
       <data xmi:type="process:JavaObjectData" xmi:id="_GDsXRGz_Ee6OFP_lORmyYg" name="itemsInOrder" dataType="_GDsXwGz_Ee6OFP_lORmyYg" className="java.util.List">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXRWz_Ee6OFP_lORmyYg" name="" content="" type="GROOVY" returnType=""/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXRWz_Ee6OFP_lORmyYg" name="init_itemsInOrder()" content="def orderItemList = []&#xD;&#xA;restaurantOrderInput?.items.each{&#xD;&#xA;&#x9;//Add a new composed OrderItem instance&#xD;&#xA;&#x9;orderItemList.add({ currentOrderItemInput ->&#xD;&#xA;&#x9;&#x9;def orderItemVar = new com.myacme.sample.model.OrderItem()&#xD;&#xA;&#x9;&#x9;orderItemVar.name = currentOrderItemInput.name&#xD;&#xA;&#x9;&#x9;orderItemVar.quantity = currentOrderItemInput.quantity&#xD;&#xA;&#x9;&#x9;orderItemVar.price = currentOrderItemInput.price?.toFloat()&#xD;&#xA;&#x9;&#x9;return orderItemVar&#xD;&#xA;&#x9;}(it))&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return orderItemList" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.util.List">
+          <referencedElements xmi:type="process:ContractInput" xmi:id="_ZCfCcG0HEe6OFP_lORmyYg" name="restaurantOrderInput" type="COMPLEX"/>
+        </defaultValue>
       </data>
       <data xmi:type="process:Data" xmi:id="_GDsXRmz_Ee6OFP_lORmyYg" name="subTotal" dataType="_GDsXvmz_Ee6OFP_lORmyYg">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXR2z_Ee6OFP_lORmyYg" name="" content="" returnType=""/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXR2z_Ee6OFP_lORmyYg" name="0" content="0" returnType="java.lang.Double"/>
       </data>
       <data xmi:type="process:Data" xmi:id="_GDsXSGz_Ee6OFP_lORmyYg" name="orderContainsDrinks" dataType="_GDsXumz_Ee6OFP_lORmyYg">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXSWz_Ee6OFP_lORmyYg" name="" content="" returnType=""/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXSWz_Ee6OFP_lORmyYg" name="false" content="false" returnType="java.lang.Boolean"/>
       </data>
       <data xmi:type="process:BusinessObjectData" xmi:id="_GDsXSmz_Ee6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder">
         <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXS2z_Ee6OFP_lORmyYg" name="initRestaurantOrder()" content="import java.time.OffsetDateTime&#xD;&#xA;import org.bonitasoft.engine.identity.UserNotFoundException&#xD;&#xA;&#xD;&#xA;def restaurantOrderVar = new com.myacme.sample.model.RestaurantOrder()&#xD;&#xA;restaurantOrderVar.items = {&#xD;&#xA;&#x9;def orderItemList = []&#xD;&#xA;&#x9;//For each item collected in multiple input&#xD;&#xA;&#x9;restaurantOrderInput?.items.each{&#xD;&#xA;&#x9;&#x9;//Add a new composed OrderItem instance&#xD;&#xA;&#x9;&#x9;orderItemList.add({ currentOrderItemInput ->&#xD;&#xA;&#x9;&#x9;&#x9;def orderItemVar = new com.myacme.sample.model.OrderItem()&#xD;&#xA;&#x9;&#x9;&#x9;orderItemVar.name = currentOrderItemInput.name&#xD;&#xA;&#x9;&#x9;&#x9;orderItemVar.quantity = currentOrderItemInput.quantity&#xD;&#xA;&#x9;&#x9;&#x9;orderItemVar.price = currentOrderItemInput.price?.toFloat()&#xD;&#xA;&#x9;&#x9;&#x9;return orderItemVar&#xD;&#xA;&#x9;&#x9;}(it))&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;return orderItemList}()&#xD;&#xA;&#x9;try{&#xD;&#xA;&#x9;&#x9;def processInitiator = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.getProcessInstance(processInstanceId)&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;.getStartedBy())&#xD;&#xA;&#x9;&#x9;restaurantOrderVar.tableNumber = processInitiator.id&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;}catch(UserNotFoundException e){&#xD;&#xA;&#x9;&#x9;// Handle UserNotFoundException here&#xD;&#xA;&#x9;&#x9;// Was the process started by the system (e.g.: a start event) ?&#xD;&#xA;&#x9;&#x9;// Has the user who started the process instance been deleted ?&#xD;&#xA;&#x9;}&#xD;&#xA;restaurantOrderVar.status = &quot;SENT TO KITCHEN&quot;&#xD;&#xA;restaurantOrderVar.dateTime = OffsetDateTime.now()&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;return restaurantOrderVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.myacme.sample.model.RestaurantOrder">
@@ -197,10 +196,10 @@
         </defaultValue>
       </data>
       <data xmi:type="process:BusinessObjectData" xmi:id="_GDsXT2z_Ee6OFP_lORmyYg" name="tableCheck" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.TableOrderCheck">
-        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXUGz_Ee6OFP_lORmyYg" name="init_tableCheck()" content="import org.bonitasoft.engine.identity.UserNotFoundException&#xD;&#xA;&#xD;&#xA;def table = 0&#xD;&#xA;try{&#xD;&#xA;&#x9;def processInitiator = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI()&#xD;&#xA;&#x9;&#x9;&#x9;.getProcessInstance(processInstanceId)&#xD;&#xA;&#x9;&#x9;&#x9;.getStartedBy())&#xD;&#xA;&#x9;table = processInitiator.id&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;}catch(UserNotFoundException e){&#xD;&#xA;&#x9;// Handle UserNotFoundException here&#xD;&#xA;&#x9;// Was the process started by the system (e.g.: a start event) ?&#xD;&#xA;&#x9;// Has the user who started the process instance been deleted ?&#xD;&#xA;}&#xD;&#xA;def tableOrderCheckVar = tableOrderCheckDAO.findByTableIdAndStatus(table, &quot;ACTIVE&quot;)&#xD;&#xA;if (tableOrderCheckVar == null){&#xD;&#xA;&#x9;tableOrderCheckVar = tableOrderCheckDAO.newInstance(table)&#xD;&#xA;&#x9;tableOrderCheckVar.status = &quot;ACTIVE&quot;&#xD;&#xA;&#x9;tableOrderCheckVar = 0&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return tableOrderCheckVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.myacme.sample.model.TableOrderCheck">
-          <referencedElements xmi:type="expression:Expression" xmi:id="_DRgGkG0AEe6OFP_lORmyYg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
-          <referencedElements xmi:type="expression:Expression" xmi:id="_DRgGkW0AEe6OFP_lORmyYg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
-          <referencedElements xmi:type="expression:Expression" xmi:id="_DRgGkm0AEe6OFP_lORmyYg" name="tableOrderCheckDAO" content="tableOrderCheckDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.myacme.sample.model.TableOrderCheckDAO" returnTypeFixed="true"/>
+        <defaultValue xmi:type="expression:Expression" xmi:id="_GDsXUGz_Ee6OFP_lORmyYg" name="init_tableCheck()" content="import org.bonitasoft.engine.identity.UserNotFoundException&#xD;&#xA;&#xD;&#xA;def table = 0&#xD;&#xA;try{&#xD;&#xA;&#x9;def processInitiator = apiAccessor.getIdentityAPI().getUser(apiAccessor.getProcessAPI()&#xD;&#xA;&#x9;&#x9;&#x9;.getProcessInstance(processInstanceId)&#xD;&#xA;&#x9;&#x9;&#x9;.getStartedBy())&#xD;&#xA;&#x9;table = processInitiator.id&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;}catch(UserNotFoundException e){&#xD;&#xA;&#x9;// Handle UserNotFoundException here&#xD;&#xA;&#x9;// Was the process started by the system (e.g.: a start event) ?&#xD;&#xA;&#x9;// Has the user who started the process instance been deleted ?&#xD;&#xA;}&#xD;&#xA;def tableOrderCheckVar = tableOrderCheckDAO.findByTableIdAndStatus(table, &quot;ACTIVE&quot;)&#xD;&#xA;if (tableOrderCheckVar == null){&#xD;&#xA;&#x9;//tableOrderCheckVar = new com.myacme.sample.model.TableOrderCheck()&#xD;&#xA;&#x9;tableOrderCheckVar = tableOrderCheckDAO.newInstance(table)&#xD;&#xA;&#x9;tableOrderCheckVar.status = &quot;ACTIVE&quot;&#xD;&#xA;&#x9;tableOrderCheckVar.total = 0&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return tableOrderCheckVar" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="com.myacme.sample.model.TableOrderCheck">
+          <referencedElements xmi:type="expression:Expression" xmi:id="_y7jEcG0CEe6OFP_lORmyYg" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+          <referencedElements xmi:type="expression:Expression" xmi:id="_y7jEcW0CEe6OFP_lORmyYg" name="tableOrderCheckDAO" content="tableOrderCheckDAO" type="TYPE_BUSINESS_OBJECT_DAO" returnType="com.myacme.sample.model.TableOrderCheckDAO" returnTypeFixed="true"/>
+          <referencedElements xmi:type="expression:Expression" xmi:id="_y7jEcm0CEe6OFP_lORmyYg" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
         </defaultValue>
       </data>
       <formMapping xmi:type="process:FormMapping" xmi:id="_GDsXVGz_Ee6OFP_lORmyYg">
@@ -211,7 +210,9 @@
       </overviewFormMapping>
       <connections xmi:type="process:SequenceFlow" xmi:id="_GDsXWGz_Ee6OFP_lORmyYg" name="order contains meals" target="_GDsXLGz_Ee6OFP_lORmyYg" source="_GDsW8Wz_Ee6OFP_lORmyYg">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_GDsXWWz_Ee6OFP_lORmyYg"/>
-        <condition xmi:type="expression:Expression" xmi:id="_GDsXWmz_Ee6OFP_lORmyYg" name="groovyExpression" content="restaurantOrder.items.size() > 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_GDsXWmz_Ee6OFP_lORmyYg" name="groovyExpression" content="restaurantOrder.getItems().size() > 0" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_Huf5gG0EEe6OFP_lORmyYg" name="restaurantOrder" dataType="_GDsXwmz_Ee6OFP_lORmyYg" className="com.myacme.sample.model.RestaurantOrder"/>
+        </condition>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_GDsXW2z_Ee6OFP_lORmyYg" target="_GDsW-mz_Ee6OFP_lORmyYg" source="_GDsW8Wz_Ee6OFP_lORmyYg">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_GDsXXGz_Ee6OFP_lORmyYg"/>
@@ -265,13 +266,13 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_GDsXgGz_Ee6OFP_lORmyYg" target="_GDsW9Wz_Ee6OFP_lORmyYg" source="_GDsW8Wz_Ee6OFP_lORmyYg" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_GDsXgWz_Ee6OFP_lORmyYg"/>
-        <condition xmi:type="expression:Expression" xmi:id="_GDsXgmz_Ee6OFP_lORmyYg" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_GDsXgmz_Ee6OFP_lORmyYg" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <actors xmi:type="process:Actor" xmi:id="_GDsXg2z_Ee6OFP_lORmyYg" name="Client" initiator="true"/>
       <actors xmi:type="process:Actor" xmi:id="_GDsXhGz_Ee6OFP_lORmyYg" name="Bartender"/>
       <actors xmi:type="process:Actor" xmi:id="_GDsXhWz_Ee6OFP_lORmyYg" name="Waiter"/>
       <actors xmi:type="process:Actor" xmi:id="_GDsXhmz_Ee6OFP_lORmyYg" name="Chef"/>
-      <configurations xmi:type="configuration:Configuration" xmi:id="_GDsXh2z_Ee6OFP_lORmyYg" name="Production" version="7.12.0-004" username="walter.bates">
+      <configurations xmi:type="configuration:Configuration" xmi:id="_GDsXh2z_Ee6OFP_lORmyYg" name="Production" version="7.12.0-004" username="1table">
         <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_GDsXiGz_Ee6OFP_lORmyYg">
           <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_GDsXiWz_Ee6OFP_lORmyYg" name="Client">
             <groups xmi:type="actormapping:Groups" xmi:id="_GDsXimz_Ee6OFP_lORmyYg">
