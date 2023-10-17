@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="ACME">
+  <customUserInfoDefinitions/>
+  <users>
+    <user userName="william.jobs">
+      <firstName>William</firstName>
+      <lastName>Jobs</lastName>
+      <title>Mr</title>
+      <jobTitle>Chief Executive Officer</jobTitle>
+      <personalData/>
+      <professionalData>
+        <email>william.jobs@acme.com</email>
+        <phoneNumber>484-302-5000</phoneNumber>
+        <faxNumber>484-302-0000</faxNumber>
+        <building>70</building>
+        <address>Renwick Drive</address>
+        <zipCode>19108</zipCode>
+        <city>Philadelphia</city>
+        <state>PA</state>
+        <country>United States</country>
+      </professionalData>
+      <metaDatas>
+        <metaData name="Skype ID"/>
+        <metaData name="Twitter"/>
+        <metaData name="Facebook"/>
+      </metaDatas>
+      <enabled>true</enabled>
+      <password encrypted="false">bpm</password>
+    </user>
+    <user userName="helen.kelly">
+      <firstName>Helen</firstName>
+      <lastName>Kelly</lastName>
+      <title>Mrs</title>
+      <jobTitle>Human resource manager</jobTitle>
+      <manager>william.jobs</manager>
+      <personalData/>
+      <professionalData>
+        <email>helen.kelly@acme.com</email>
+        <phoneNumber>484-302-5000</phoneNumber>
+        <faxNumber>484-302-0000</faxNumber>
+        <building>70</building>
+        <address>Renwick Drive</address>
+        <zipCode>19108</zipCode>
+        <city>Philadelphia</city>
+        <state>PA</state>
+        <country>United States</country>
+      </professionalData>
+      <metaDatas>
+        <metaData name="Skype ID"/>
+        <metaData name="Twitter"/>
+        <metaData name="Facebook"/>
+      </metaDatas>
+      <enabled>true</enabled>
+      <password encrypted="false">bpm</password>
+    </user>
+    <user userName="walter.bates">
+      <firstName>Walter</firstName>
+      <lastName>Bates</lastName>
+      <title>Mr</title>
+      <jobTitle>Waiter</jobTitle>
+      <manager>helen.kelly</manager>
+      <personalData/>
+      <professionalData>
+        <email>walter.bates@acme.com</email>
+        <phoneNumber>484-302-5000</phoneNumber>
+        <faxNumber>484-302-0000</faxNumber>
+        <building>70</building>
+        <address>Renwick Drive</address>
+        <zipCode>19108</zipCode>
+        <city>Philadelphia</city>
+        <state>PA</state>
+        <country>United States</country>
+      </professionalData>
+      <metaDatas>
+        <metaData name="Skype ID"/>
+        <metaData name="Twitter"/>
+        <metaData name="Facebook"/>
+      </metaDatas>
+      <enabled>true</enabled>
+      <password encrypted="false">bpm</password>
+    </user>
+    <user userName="1table">
+      <firstName>Table</firstName>
+      <lastName>One</lastName>
+      <manager>daniela.angelo</manager>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="2table">
+      <firstName>Table</firstName>
+      <lastName>Two</lastName>
+      <personalData/>
+      <professionalData/>
+      <password encrypted="false">bpm</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
+  <roles>
+    <role name="member">
+      <displayName>Member</displayName>
+      <description></description>
+    </role>
+    <role name="Chef">
+      <displayName>Chef</displayName>
+      <description>Kitchen chef. In charge of preparing meals.</description>
+    </role>
+    <role name="waiter">
+      <displayName>Waiter</displayName>
+    </role>
+  </roles>
+  <groups>
+    <group name="acme">
+      <displayName>Acme</displayName>
+      <description>This group represents the acme department of the ACME organization</description>
+    </group>
+    <group name="clients">
+      <displayName>Clients</displayName>
+    </group>
+  </groups>
+  <memberships>
+    <membership>
+      <userName>william.jobs</userName>
+      <roleName>waiter</roleName>
+      <groupName>acme</groupName>
+    </membership>
+    <membership>
+      <userName>helen.kelly</userName>
+      <roleName>Chef</roleName>
+      <groupName>acme</groupName>
+    </membership>
+    <membership>
+      <userName>walter.bates</userName>
+      <roleName>member</roleName>
+      <groupName>acme</groupName>
+    </membership>
+    <membership>
+      <userName>1table</userName>
+      <roleName>member</roleName>
+      <groupName>clients</groupName>
+    </membership>
+    <membership>
+      <userName>2table</userName>
+      <roleName>member</roleName>
+      <groupName>clients</groupName>
+    </membership>
+    <membership>
+      <userName>walter.bates</userName>
+      <roleName>waiter</roleName>
+      <groupName>acme</groupName>
+    </membership>
+  </memberships>
+</organization:Organization>
